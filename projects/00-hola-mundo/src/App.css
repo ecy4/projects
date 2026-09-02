@@ -1,0 +1,87 @@
+.tw-followCard {
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+    justify-content: space-between;
+}
+
+.tw-followCard-header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgb(235, 251, 4);
+}
+
+.tw-followCard-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.tw-followCard-infoUserName {
+    opacity: .9;
+    color: hsl(0, 100%, 50%);
+}
+
+.tw-followCard-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 16px;
+    border: 1px solid #000;
+    border-radius: 999px;
+    width: 80px;
+    padding: 6px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.button:hover {
+    opacity: .8;
+}
+
+.followCard-text {
+    display: block;
+}
+
+/* Botón cuando está siguiendo */
+.button.buttonFollowing {
+    border: 1px solid #bbb;
+    background: transparent;
+    color: #fff;
+    width: 140px;
+}
+
+/* Hover del botón "Siguiendo" */
+.button.buttonFollowing:hover {
+    background-color: rgb(255, 0, 0, 0.178);
+    color: red;
+    border: 1px solid red;
+}
+
+/* Ocultar "Siguiendo" al pasar el mouse */
+.button.buttonFollowing:hover .followCard-text {
+    display: none;
+}
+
+/* Mostrar "Dejar de seguir" al pasar el mouse */
+.button.buttonFollowing:hover .followCard-stopFollow {
+    display: block;
+}
+
+.followCard-stopFollow {
+    display: none;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
