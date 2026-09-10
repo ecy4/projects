@@ -1,26 +1,24 @@
-import { useState } from 'react'
 import './App.css'
 import logo from './imagenes/logo.png'
-import { Tarea } from './componentes/Tarea'
 import { ListaDeTareas } from './componentes/ListaDeTareas'
-function App() {
-  
-
+function App () {
   return (
-  <div className='App'>
-    <div className='contenedor-logo'>
-      <img src={logo}
-      className='logo'
-       alt="" />
+    <div className='App'>
+      <div className='contenedor-logo'>
+        <img
+          src={logo}
+          className='logo'
+          alt=''
+        />
+
+      </div>
+      <div className='lista-principal'>
+        <h1>Mis Tareas</h1>
+        <ListaDeTareas />
+
+      </div>
 
     </div>
-    <div className='lista-principal'>
-      <h1>Mis Tareas</h1>
-      <ListaDeTareas />
-
-    </div>
-
-  </div>
   )
 }
 

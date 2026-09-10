@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/ecy4/aprendiendo-react/issues"
   },
-  "homepage": "https://github.com/ecy4/aprendiendo-react#readme"
+  "homepage": "https://github.com/ecy4/aprendiendo-react#readme",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  }
 }
