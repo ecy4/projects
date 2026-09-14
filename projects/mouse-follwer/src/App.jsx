@@ -22,7 +22,7 @@ function App () {
     <main>
       <div style={{
         position: 'absolute',
-        backgroundColor: '#09f',
+        backgroundColor: 'rgb(249, 9, 129)',
         borderRadius: '50%',
         opacity: 0.8,
         pointerEvents: 'none',
