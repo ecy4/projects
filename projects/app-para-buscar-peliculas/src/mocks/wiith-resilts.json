@@ -1,0 +1,381 @@
+{
+    "Search": [
+        {
+            "id": 1,
+            "title": "The Shawshank Redemption",
+            "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+            "year": 1994,
+            "image_url": "https://devsapihub.com/img-movies/1.jpg",
+            "genre": [
+                "Drama"
+            ],
+            "stars": 5
+        },
+        {
+            "id": 2,
+            "title": "Jumanji",
+            "description": "In Jumanji: The Next Level, the gang is back but the game has changed.",
+            "year": 2019,
+            "image_url": "https://devsapihub.com/img-movies/2.jpg",
+            "genre": [
+                "Adventure",
+                "Fantasy",
+                "Comedy"
+            ],
+            "stars": 3.4
+        },
+        {
+            "id": 3,
+            "title": "The Godfather",
+            "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son",
+            "year": 1972,
+            "image_url": "https://devsapihub.com/img-movies/3.jpg",
+            "genre": [
+                "Crime",
+                "Drama"
+            ],
+            "stars": 2.8
+        },
+        {
+            "id": 4,
+            "title": "The Godfather: Part II",
+            "description": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+            "year": 1974,
+            "image_url": "https://devsapihub.com/img-movies/4.jpg",
+            "genre": [
+                "Crime",
+                "Drama"
+            ],
+            "stars": 4.3
+        },
+        {
+            "id": 5,
+            "title": "The Dark Knight",
+            "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+            "year": 2008,
+            "image_url": "https://devsapihub.com/img-movies/5.jpg",
+            "genre": [
+                "Action",
+                "Crime",
+                "Drama"
+            ],
+            "stars": 4
+        },
+        {
+            "id": 6,
+            "title": "12 Angry Men",
+            "description": "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
+            "year": 1957,
+            "image_url": "https://devsapihub.com/img-movies/6.jpg",
+            "genre": [
+                "Drama"
+            ],
+            "stars": 1.8
+        },
+        {
+            "id": 7,
+            "title": "No Hard Feelings",
+            "description": "On the brink of losing her home, a woman agrees to date a wealthy couple's introverted son before he leaves for college.",
+            "year": 2023,
+            "image_url": "https://devsapihub.com/img-movies/7.jpg",
+            "genre": [
+                "Comedy",
+                "Romance"
+            ],
+            "stars": 2.4
+        },
+        {
+            "id": 8,
+            "title": "The Lord of the Rings: The Return of the King",
+            "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+            "year": 2003,
+            "image_url": "https://devsapihub.com/img-movies/8.jpg",
+            "genre": [
+                "Fantasy",
+                "Adventure",
+                "Drama"
+            ],
+            "stars": 1.9
+        },
+        {
+            "id": 9,
+            "title": "Pulp Fiction",
+            "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+            "year": 1994,
+            "image_url": "https://devsapihub.com/img-movies/9.jpg",
+            "genre": [
+                "Crime",
+                "Drama"
+            ],
+            "stars": 5
+        },
+        {
+            "id": 10,
+            "title": "The Good, the Bad and the Ugly",
+            "description": "A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.",
+            "year": 1966,
+            "image_url": "https://devsapihub.com/img-movies/10.jpg",
+            "genre": [
+                "Western"
+            ],
+            "stars": 4.3
+        },
+        {
+            "id": 11,
+            "title": "The Lord of the Rings: The Fellowship of the Ring",
+            "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+            "year": 2001,
+            "image_url": "https://devsapihub.com/img-movies/11.jpg",
+            "genre": [
+                "Fantasy",
+                "Adventure",
+                "Drama"
+            ],
+            "stars": 5
+        },
+        {
+            "id": 12,
+            "title": "Fight Club",
+            "description": "An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.",
+            "year": 1999,
+            "image_url": "https://devsapihub.com/img-movies/12.jpg",
+            "genre": [
+                "Drama"
+            ],
+            "stars": 4.2
+        },
+        {
+            "id": 13,
+            "title": "Dune: Part Two",
+            "description": "Paul Atreides unites with Chani and the Fremen to exact revenge against the conspirators who destroyed his family.",
+            "year": 2024,
+            "image_url": "https://devsapihub.com/img-movies/13.jpg",
+            "genre": [
+                "Sci-Fi",
+                "Adventure",
+                "Action"
+            ],
+            "stars": 4.8
+        },
+        {
+            "id": 14,
+            "title": "Oppenheimer",
+            "description": "The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb.",
+            "year": 2023,
+            "image_url": "https://devsapihub.com/img-movies/14.jpg",
+            "genre": [
+                "Biography",
+                "Drama",
+                "History"
+            ],
+            "stars": 5
+        },
+        {
+            "id": 15,
+            "title": "Barbie",
+            "description": "Barbie suffers a crisis that leads her to question her world and her existence.",
+            "year": 2023,
+            "image_url": "https://devsapihub.com/img-movies/15.jpg",
+            "genre": [
+                "Comedy",
+                "Fantasy"
+            ],
+            "stars": 3.2
+        },
+        {
+            "id": 16,
+            "title": "Spider-Man: No Way Home",
+            "description": "With Spider-Man’s identity revealed, Peter asks Doctor Strange for help, leading to multiverse chaos.",
+            "year": 2021,
+            "image_url": "https://devsapihub.com/img-movies/16.jpg",
+            "genre": [
+                "Action",
+                "Adventure",
+                "Sci-Fi"
+            ],
+            "stars": 4.6
+        },
+        {
+            "id": 17,
+            "title": "Avatar: The Way of Water",
+            "description": "Jake Sully lives with his newfound family formed on the planet of Pandora, facing new threats.",
+            "year": 2022,
+            "image_url": "https://devsapihub.com/img-movies/17.jpg",
+            "genre": [
+                "Sci-Fi",
+                "Adventure",
+                "Action"
+            ],
+            "stars": 4.1
+        },
+        {
+            "id": 18,
+            "title": "The Batman",
+            "description": "Batman uncovers corruption in Gotham City that connects to his own family while facing the Riddler.",
+            "year": 2022,
+            "image_url": "https://devsapihub.com/img-movies/18.jpg",
+            "genre": [
+                "Action",
+                "Crime",
+                "Drama"
+            ],
+            "stars": 3.7
+        },
+        {
+            "id": 19,
+            "title": "Everything Everywhere All at Once",
+            "description": "An aging Chinese immigrant is swept up in a wild adventure where she alone can save the world by exploring other universes.",
+            "year": 2022,
+            "image_url": "https://devsapihub.com/img-movies/19.jpg",
+            "genre": [
+                "Adventure",
+                "Sci-Fi",
+                "Action"
+            ],
+            "stars": 5
+        },
+        {
+            "id": 20,
+            "title": "The Matrix",
+            "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+            "year": 1999,
+            "image_url": "https://devsapihub.com/img-movies/20.jpg",
+            "genre": [
+                "Sci-Fi",
+                "Action"
+            ],
+            "stars": 5
+        },
+        {
+            "id": 21,
+            "title": "Mi Villano Favorito 4",
+            "description": "Gru, Lucy, Margo, Edith y Agnes dan la bienvenida a un nuevo miembro de la familia, Gru Jr., mientras enfrentan una nueva amenaza liderada por Maxime Le Mal.",
+            "year": 2024,
+            "image_url": "https://devsapihub.com/img-movies/21.jpg",
+            "genre": [
+                "Animation",
+                "Comedy",
+                "Family"
+            ],
+            "stars": 4.5
+        },
+        {
+            "id": 22,
+            "title": "Hotel Transylvania 2",
+            "description": "Drácula intenta despertar los poderes de monstruo de su nieto Dennis antes de que su hija Mavis decida mudarse al mundo de los humanos.",
+            "year": 2015,
+            "image_url": "https://devsapihub.com/img-movies/22.jpg",
+            "genre": [
+                "Animation",
+                "Comedy",
+                "Family"
+            ],
+            "stars": 4.2
+        },
+        {
+            "id": 23,
+            "title": "Merlina - Temporada 2",
+            "description": "Merlina Addams regresa a la Academia Nunca Más para enfrentar nuevos misterios sobrenaturales, enemigos inesperados y oscuros secretos familiares.",
+            "year": 2025,
+            "image_url": "https://devsapihub.com/img-movies/23.jpg",
+            "genre": [
+                "Fantasy",
+                "Mystery",
+                "Dark Comedy"
+            ],
+            "stars": 4.3
+        },
+        {
+            "id": 24,
+            "title": "Super Mario Bros. La Película",
+            "description": "Mario y Luigi son transportados al Reino Champiñón, donde deberán enfrentarse a Bowser para salvar el mundo y rescatar a la Princesa Peach.",
+            "year": 2023,
+            "image_url": "https://devsapihub.com/img-movies/24.jpg",
+            "genre": [
+                "Animation",
+                "Adventure",
+                "Comedy"
+            ],
+            "stars": 4.1
+        },
+        {
+            "id": 25,
+            "title": "Moana 2",
+            "description": "Tras recibir una inesperada llamada de sus ancestros, Moana emprende una nueva travesía por los mares de Oceanía junto a Maui y una tripulación de navegantes.",
+            "year": 2024,
+            "image_url": "https://devsapihub.com/img-movies/25.jpeg",
+            "genre": [
+                "Animation",
+                "Adventure",
+                "Family"
+            ],
+            "stars": 4
+        },
+        {
+            "id": 26,
+            "title": "Toy Story 4",
+            "description": "Woody, Buzz Lightyear y el resto de los juguetes emprenden una nueva aventura cuando Forky, el nuevo juguete de Bonnie, se pierde durante un viaje familiar.",
+            "year": 2019,
+            "image_url": "https://devsapihub.com/img-movies/26.jpg",
+            "genre": [
+                "Animation",
+                "Adventure",
+                "Comedy"
+            ],
+            "stars": 4.4
+        },
+        {
+            "id": 27,
+            "title": "El Botín",
+            "description": "Un grupo de policías de Miami descubre millones de dólares ocultos en un escondite abandonado. La confianza se rompe y todos comienzan a sospechar de todos mientras intentan quedarse con el dinero.",
+            "year": 2026,
+            "image_url": "https://devsapihub.com/img-movies/27.jpg",
+            "genre": [
+                "Action",
+                "Crime",
+                "Drama"
+            ],
+            "stars": 4.6
+        },
+        {
+            "id": 28,
+            "title": "Apex",
+            "description": "Sasha, una experimentada escaladora, se adentra en la naturaleza salvaje de Australia para superar una tragedia personal. Lo que comienza como una expedición solitaria se convierte en una lucha por la supervivencia cuando un peligroso depredador humano comienza a cazarla.",
+            "year": 2026,
+            "image_url": "https://devsapihub.com/img-movies/28.jpg",
+            "genre": [
+                "Action",
+                "Suspense",
+                "Survival"
+            ],
+            "stars": 4.8
+        },
+        {
+            "id": 29,
+            "title": "Máquina de Guerra",
+            "description": "Durante la fase final del entrenamiento de los Army Rangers, un grupo de soldados de élite debe luchar por sobrevivir cuando se enfrenta a una gigantesca máquina alienígena letal.",
+            "year": 2026,
+            "image_url": "https://devsapihub.com/img-movies/29.png",
+            "genre": [
+                "Action",
+                "Science Fiction",
+                "Suspense"
+            ],
+            "stars": 4.9
+        },
+        {
+            "id": 30,
+            "title": "Una batalla tras otra",
+            "description": "Un antiguo grupo de revolucionarios se ve obligado a reunirse después de 16 años cuando reaparece su viejo enemigo y la hija de uno de ellos desaparece, iniciando una peligrosa misión de rescate.",
+            "year": 2025,
+            "image_url": "https://devsapihub.com/img-movies/30.jpg",
+            "genre": [
+                "Action",
+                "Crime",
+                "Drama",
+                "Suspense"
+            ],
+            "stars": 4.7
+        }
+    ]
+}

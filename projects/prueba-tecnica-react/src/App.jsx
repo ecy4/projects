@@ -9,7 +9,7 @@ export function App() {
     const { imageUrl } = useCatImage({ fact })
    
     const handleClick = async ()=> {
-       refreshFact()
+       await refreshFact()
     }
 
     return (
@@ -26,33 +26,12 @@ export function App() {
                     />  
                 )}
                 </section>
+                <section>
+                    {fact && <p>{fact}</p>}
+                    <Otro />
+                </section>
             
            
-
-                <section className='fact2'>
-                    {fact && <p>{fact}</p>}
-                    <Otro />
-                </section>
-
-                <section className='fact2'>
-                    {fact && <p>{fact}</p>}
-                    <Otro />
-                </section>
-
-                <section className='fact2'>
-                    {fact && <p>{fact}</p>}
-                    <Otro />
-                </section>
-
-                <section className='fact2'>
-                    {fact && <p>{fact}</p>}
-                    <Otro />
-                </section>
-
-                <section className='fact2'>
-                    {fact && <p>{fact}</p>}
-                    <Otro />
-                </section>
             </div>
             
             

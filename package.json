@@ -20,5 +20,8 @@
   "homepage": "https://github.com/ecy4/aprendiendo-react#readme",
   "devDependencies": {
     "standard": "^17.1.2"
+  },
+  "dependencies": {
+    "axios": "^1.20.0"
   }
 }
