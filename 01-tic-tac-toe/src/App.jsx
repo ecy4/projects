@@ -35,7 +35,8 @@ function App({ gameId, currentUser, onLeaveGame }) {
         setTurn(data.turno === data.jugador_x ? TURNS.X : TURNS.O)
 
         if (data.ganador_id) {
-          setWinner(data.ganador_id)
+          const winnerSymbol = data.ganador_id === data.jugador_x ? TURNS.X : TURNS.O
+          setWinner(winnerSymbol)
           confetti()
         } else if (data.estado === 'empate') {
           setWinner(false)
@@ -45,31 +46,32 @@ function App({ gameId, currentUser, onLeaveGame }) {
 
     fetchGame()
 
-    const channel = supabase
-      .channel(`game-${gameId}`)
-      .on(
-        'postgres_changes',
-        { event: 'UPDATE', schema: 'public', table: 'partidas', filter: `id=eq.${gameId}` },
-        (payload) => {
-          const updatedGame = payload.new
-          setGameData(updatedGame)
-          setBoard(normalizeBoard(updatedGame.tablero))
+  const channel = supabase
+  .channel(`game-${gameId}`)
+  .on(
+    'postgres_changes',
+    { event: 'UPDATE', schema: 'public', table: 'partidas', filter: `id=eq.${gameId}` },
+    (payload) => {
+      const updatedGame = payload.new
+      setGameData(updatedGame)
+      setBoard(normalizeBoard(updatedGame.tablero))
 
-          const nextTurn = updatedGame.turno === updatedGame.jugador_x ? TURNS.X : TURNS.O
-          setTurn(nextTurn)
+      const nextTurn = updatedGame.turno === updatedGame.jugador_x ? TURNS.X : TURNS.O
+      setTurn(nextTurn)
 
-          if (updatedGame.ganador_id) {
-            setWinner(updatedGame.ganador_id)
-            confetti()
-          } else if (updatedGame.estado === 'empate') {
-            setWinner(false)
-          } else {
-            setWinner(null)
-          }
-        }
-      )
-      .subscribe()
-
+      if (updatedGame.ganador_id) {
+        // ✅ CORRECCIÓN: Convertir el ID del ganador al símbolo correspondiente (X u O)
+        const winnerSymbol = updatedGame.ganador_id === updatedGame.jugador_x ? TURNS.X : TURNS.O
+        setWinner(winnerSymbol)
+        confetti()
+      } else if (updatedGame.estado === 'empate') {
+        setWinner(false)
+      } else {
+        setWinner(null)
+      }
+    }
+  )
+  .subscribe()
     return () => {
       supabase.removeChannel(channel)
     }
