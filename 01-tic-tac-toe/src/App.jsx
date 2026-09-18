@@ -6,11 +6,12 @@ import { checkWinnerFrom } from "./logic/board"
 import { WinnerModal } from "./components/WinnerModal"
 import { supabase } from "./supabase"
 
-function App({ gameId, currentUser }) {
+function App({ gameId, currentUser, onLeaveGame }) {
   const [board, setBoard] = useState(Array(9).fill(null))
   const [turn, setTurn] = useState(TURNS.X)
   const [winner, setWinner] = useState(null)
   const [gameData, setGameData] = useState(null)
+  const [copied, setCopied] = useState(false)
 
   // Helper para convertir '' a null
   const normalizeBoard = (rawBoard) => {
@@ -32,6 +33,13 @@ function App({ gameId, currentUser }) {
         setGameData(data)
         setBoard(normalizeBoard(data.tablero))
         setTurn(data.turno === data.jugador_x ? TURNS.X : TURNS.O)
+
+        if (data.ganador_id) {
+          setWinner(data.ganador_id)
+          confetti()
+        } else if (data.estado === 'empate') {
+          setWinner(false)
+        }
       }
     }
 
@@ -45,8 +53,6 @@ function App({ gameId, currentUser }) {
         (payload) => {
           const updatedGame = payload.new
           setGameData(updatedGame)
-          
-          // Normalización obligatoria aquí también:
           setBoard(normalizeBoard(updatedGame.tablero))
 
           const nextTurn = updatedGame.turno === updatedGame.jugador_x ? TURNS.X : TURNS.O
@@ -71,6 +77,13 @@ function App({ gameId, currentUser }) {
 
   const checkEndGame = (newBoard) => {
     return newBoard.every((square) => square !== null)
+  }
+
+  // Copiar código de sala al portapapeles
+  const copyGameCode = () => {
+    navigator.clipboard.writeText(gameId)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
   }
 
   // 2. Enviar movimiento a Supabase
@@ -99,7 +112,6 @@ function App({ gameId, currentUser }) {
     const newWinner = checkWinnerFrom(newBoard)
     const isDraw = !newWinner && checkEndGame(newBoard)
 
-    // Convertimos nulls a strings vacíos para guardar en Postgres
     const boardToSave = newBoard.map(cell => cell === null ? '' : cell)
 
     await supabase
@@ -130,10 +142,37 @@ function App({ gameId, currentUser }) {
     setWinner(null)
   }
 
+  const isWaiting = gameData && !gameData.jugador_o
+  const isMyTurn = gameData && (
+    (turn === TURNS.X && currentUser.id === gameData.jugador_x) ||
+    (turn === TURNS.O && currentUser.id === gameData.jugador_o)
+  )
+
   return (
     <main className='board'>
-      <h1>Tic tac toe</h1>
+      <h1>Tic Tac Toe</h1>
+
+      {/* Código de sala */}
+      <div className="game-code-box">
+        <span>Código de sala:</span>
+        <button className="code-copy-btn" onClick={copyGameCode}>
+          {copied ? '✅ Copiado!' : '📋 Copiar código'}
+        </button>
+      </div>
+
+      {/* Estado de la partida */}
+      {isWaiting && (
+        <p className="waiting-msg">⏳ Esperando al segundo jugador...</p>
+      )}
+      {!isWaiting && !winner && (
+        <p className="turn-msg">
+          {isMyTurn ? '🎯 Tu turno' : '⏳ Turno del rival'}
+        </p>
+      )}
+
       <button onClick={resetGame}>Resetear juego</button>
+      <button className="leave-btn" onClick={onLeaveGame}>Salir al lobby</button>
+
       <section className="game">
         {board.map((_, index) => (
           <Square key={index} index={index} updateboard={updateboard}>
@@ -141,6 +180,7 @@ function App({ gameId, currentUser }) {
           </Square>
         ))}
       </section>
+
       <section className="turn">
         <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
