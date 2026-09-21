@@ -4,6 +4,7 @@ import { Square } from "./components/Square"
 import { TURNS } from "./constants"
 import { checkWinnerFrom } from "./logic/board"
 import { WinnerModal } from "./components/WinnerModal"
+import { Footer } from "./components/Footer"
 import { supabase } from "./supabase"
 
 function App({ gameId, currentUser, onLeaveGame }) {
@@ -13,12 +14,12 @@ function App({ gameId, currentUser, onLeaveGame }) {
   const [gameData, setGameData] = useState(null)
   const [copied, setCopied] = useState(false)
 
-  // Helper para convertir '' a null
+  
   const normalizeBoard = (rawBoard) => {
     return rawBoard ? rawBoard.map(cell => (cell === '' ? null : cell)) : Array(9).fill(null)
   }
 
-  // 1. Cargar datos y escuchar en tiempo real
+  
   useEffect(() => {
     if (!gameId) return
 
@@ -81,30 +82,30 @@ function App({ gameId, currentUser, onLeaveGame }) {
     return newBoard.every((square) => square !== null)
   }
 
-  // Copiar código de sala al portapapeles
+  
   const copyGameCode = () => {
     navigator.clipboard.writeText(gameId)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
 
-  // 2. Enviar movimiento a Supabase
+  
   const updateboard = async (index) => {
     if (!gameData || !currentUser) return
     if (board[index] || winner) return
 
-    // Validar si falta el rival
+    
     if (!gameData.jugador_o) {
       alert("Esperando a que se una el segundo jugador...")
       return
     }
 
-    // Validar turno
+    
     const isPlayerX = currentUser.id === gameData.jugador_x
     const isPlayerO = currentUser.id === gameData.jugador_o
 
     if ((turn === TURNS.X && !isPlayerX) || (turn === TURNS.O && !isPlayerO)) {
-      return // No es tu turno
+      return 
     }
 
     const newBoard = [...board]
@@ -127,7 +128,7 @@ function App({ gameId, currentUser, onLeaveGame }) {
       .eq('id', gameId)
   }
 
-  // 3. Reiniciar la partida en la DB
+  
   const resetGame = async () => {
     if (!gameData) return
 
@@ -154,7 +155,7 @@ function App({ gameId, currentUser, onLeaveGame }) {
     <main className='board'>
       <h1>Tic Tac Toe</h1>
 
-      {/* Código de sala */}
+      
       <div className="game-code-box">
         <span>Código de sala:</span>
         <button className="code-copy-btn" onClick={copyGameCode}>
@@ -162,7 +163,7 @@ function App({ gameId, currentUser, onLeaveGame }) {
         </button>
       </div>
 
-      {/* Estado de la partida */}
+      
       {isWaiting && (
         <p className="waiting-msg">⏳ Esperando al segundo jugador...</p>
       )}
@@ -189,6 +190,7 @@ function App({ gameId, currentUser, onLeaveGame }) {
       </section>
 
       <WinnerModal resetGame={resetGame} winner={winner} />
+      <Footer />
     </main>
   )
 }

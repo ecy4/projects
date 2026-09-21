@@ -6,7 +6,7 @@ export function Lobby({ currentUser, onGameStart }) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  // Crear una nueva partida (el usuario es jugador X)
+ 
   const createGame = async () => {
     setLoading(true)
     setError('')
@@ -34,7 +34,7 @@ export function Lobby({ currentUser, onGameStart }) {
     }
   }
 
-  // Unirse a una partida existente (el usuario es jugador O)
+  
   const joinGame = async (e) => {
     e.preventDefault()
     const code = gameCode.trim()
