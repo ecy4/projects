@@ -1,10 +1,24 @@
-import { Products } from './components/products.jsx'
-import { product } from './mooks/products.js'
+import { products as initialProducts } from './mocks/products.json'
+import { Products } from './components/Products'
+import {  useState } from 'react'
+import { Header } from './components/Header'
+import { Footer } from './components/Footer'
+import { useFilters } from './hooks/useFilters'
+import { Cart } from './components/Cart'
+import { CartProvider } from './contex/cart'
 
-function App() {
-  const { products } = product
+function App () {
+  const [products] = useState(initialProducts)
+  const { filterProducts } = useFilters()
+  const filteredProducts = filterProducts(products)
+
   return (
-  <> < Products products={products}  />  </>
+    <CartProvider>
+      <Header />
+      <Cart />
+      <Products products={filteredProducts} />
+      <Footer />
+    </CartProvider>
   )
 }
 
