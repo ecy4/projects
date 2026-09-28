@@ -1,0 +1,515 @@
+/* ------------------------------------------
+   Tema oscuro inspirado en Google Translate
+   ------------------------------------------ */
+
+:root {
+  --bg: #202124;
+  --card-bg: #303134;
+  --border: #5f6368;
+  --text: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --accent: #8ab4f8;
+  --hover: rgba(232, 234, 237, 0.08);
+  --hover-accent: rgba(138, 180, 248, 0.08);
+}
+
+/* Reset global */
+body {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: 'Google Sans', 'Segoe UI', Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+#root {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  text-align: left;
+}
+
+/* ------------------------------------------
+   Titulo principal
+   ------------------------------------------ */
+
+.app-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.app-title span {
+  color: var(--accent);
+}
+
+/* ------------------------------------------
+   Contenedor del traductor (dos paneles)
+   ------------------------------------------ */
+
+.translator {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.translator-card {
+  flex: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.translator-card.from-card {
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+
+.translator-card.to-card {
+  border-radius: 0 8px 8px 0;
+  background: #28292c;
+}
+
+/* ------------------------------------------
+   Barra de selector de idioma
+   ------------------------------------------ */
+
+.language-bar {
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+}
+
+/* Sobreescritura del select de Bootstrap para que se adapte al tema oscuro */
+.language-bar .form-select {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--accent) !important;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: none !important;
+  cursor: pointer;
+  padding: 6px 28px 6px 8px;
+  border-radius: 4px;
+  max-width: 180px;
+  transition: background-color 0.2s;
+}
+
+.language-bar .form-select:hover {
+  background-color: var(--hover-accent) !important;
+}
+
+.language-bar .form-select:focus {
+  background-color: var(--hover-accent) !important;
+}
+
+.language-bar .form-select option {
+  background-color: var(--card-bg);
+  color: var(--text);
+}
+
+/* ------------------------------------------
+   Seccion del textarea
+   ------------------------------------------ */
+
+.textarea-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Textarea principal sin bordes ni fondo, solo texto limpio */
+.translator-textarea {
+  flex: 1;
+  background: transparent !important;
+  border: none !important;
+  color: var(--text) !important;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  padding: 16px 40px 16px 16px;
+  resize: none !important;
+  outline: none;
+  font-family: inherit;
+  min-height: 180px;
+  box-shadow: none !important;
+}
+
+.translator-textarea::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+.translator-textarea:disabled {
+  color: var(--text) !important;
+  opacity: 0.95;
+  cursor: default;
+}
+
+/* ------------------------------------------
+   Pie del textarea (botones y contador)
+   ------------------------------------------ */
+
+.textarea-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 12px 8px;
+  margin-top: auto;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+/* Botones de accion (copiar, escuchar) con efecto hover circular */
+.action-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  line-height: 0;
+}
+
+.action-btn:hover:not(:disabled) {
+  background: var(--hover);
+  color: var(--text);
+}
+
+.action-btn:active:not(:disabled) {
+  background: rgba(232, 234, 237, 0.15);
+}
+
+.action-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ------------------------------------------
+   Contador de caracteres
+   ------------------------------------------ */
+
+.char-counter {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+/* ------------------------------------------
+   Boton de limpiar texto (X) en la esquina
+   ------------------------------------------ */
+
+.clear-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  z-index: 5;
+  line-height: 0;
+}
+
+.clear-btn:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+/* ------------------------------------------
+   Boton de intercambio entre los dos paneles
+   ------------------------------------------ */
+
+.swap-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+  z-index: 2;
+}
+
+.swap-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  line-height: 0;
+}
+
+.swap-btn:hover:not(:disabled) {
+  background: var(--hover-accent);
+  transform: rotate(180deg);
+}
+
+.swap-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ------------------------------------------
+   Animacion de carga (tres puntos rebotando)
+   ------------------------------------------ */
+
+.loading-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 20px 16px;
+  height: 100%;
+}
+
+.loading-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dot-bounce 1.4s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+@keyframes dot-bounce {
+  0%, 80%, 100% {
+    transform: scale(0.5);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------
+   Responsive: en movil se apilan los paneles
+   ------------------------------------------ */
+
+@media (max-width: 768px) {
+  .translator {
+    flex-direction: column;
+  }
+
+  .translator-card.from-card {
+    border-radius: 8px 8px 0 0;
+    border-right: 1px solid var(--border);
+    border-bottom: none;
+  }
+
+  .translator-card.to-card {
+    border-radius: 0 0 8px 8px;
+  }
+
+  .swap-container {
+    justify-content: center;
+    padding: 0;
+    margin: -12px 0;
+  }
+
+  .swap-btn {
+    transform: rotate(90deg);
+  }
+
+  .swap-btn:hover:not(:disabled) {
+    transform: rotate(270deg);
+  }
+
+  .translator-textarea {
+    font-size: 1.1rem;
+    min-height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 1rem 0.5rem;
+  }
+
+  .app-title {
+    font-size: 1.25rem;
+  }
+
+  .translator-textarea {
+    font-size: 1rem;
+    min-height: 120px;
+  }
+
+  .language-bar .form-select {
+    font-size: 0.8rem;
+  }
+}
+
+/* ------------------------------------------
+   Seccion de historial de traducciones
+   ------------------------------------------ */
+
+.history-section {
+  margin-top: 1.5rem;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.history-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.history-title:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+.history-clear-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.history-clear-btn:hover {
+  background: var(--hover);
+  color: #f28b82;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.history-item:hover {
+  background: #3c4043;
+  border-color: var(--accent);
+}
+
+.history-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.history-item-languages {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.history-item-source {
+  font-size: 0.9rem;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-item-result {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.history-empty {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 16px;
+}
+
+/* Indicador temporal al copiar texto */
+.copied-badge {
+  position: absolute;
+  bottom: 40px;
+  right: 12px;
+  background: #202124;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  pointer-events: none;
+  animation: fade-in 0.2s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
