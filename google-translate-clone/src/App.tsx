@@ -40,8 +40,9 @@ function App () {
     }
   })
 
-  // Aplicamos un retraso de 500ms al texto escrito para evitar peticiones continuas
-  const debouncedFromText = useDebounce(fromText, 500)
+  // Aplicamos un retraso de 1500ms al texto escrito para evitar peticiones continuas.
+  // Esto ayuda a no agotar el limite por minuto (RPM) de la API de Gemini.
+  const debouncedFromText = useDebounce(fromText, 1500)
 
   // Efecto que dispara la traduccion cuando cambia el texto o los idiomas
   useEffect(() => {
