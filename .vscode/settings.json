@@ -1,4 +1,8 @@
 {
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
   "eslint.enable": true,
   "eslint.workingDirectories": [
     { "mode": "auto" }
@@ -8,9 +12,5 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  }
+  ]
 }
-
